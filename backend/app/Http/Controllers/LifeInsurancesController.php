@@ -35,23 +35,40 @@ class LifeInsurancesController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
-        $lifeInsurances = new LifeInsurance();{
-            $lifeInsurances -> user_id = $request -> user_id;
-            $lifeInsurances->start_date = $request ->start_date;
-            $lifeInsurances->date_expire = $request ->date_expire;
-            $lifeInsurances->amount = $request ->amount;
-            $lifeInsurances->description = $request ->description;
-            try{
-                $lifeInsurances->save();
-                return response()->json($lifeInsurances);
-            }catch (\Exception $e){
-                return response()->json(['error' => $e], 500);
-            }
+{
+    // Realiza la validación de los datos del request
+    $validated = $request->validate([
+        'user_id' => 'required|exists:users,id',
+        'start_date' => 'required|date',
+        'date_expire' => 'required|date',
+        'amount' => 'required|numeric',
+        'description' => 'required|string',
+    ]);
+
+    try {
+        // Verifica si el usuario ya tiene un seguro de vida registrado
+        $existingLifeInsurance = LifeInsurance::where('user_id', $validated['user_id'])->first();
+        if ($existingLifeInsurance) {
+            return response()->json([
+                'error' => 'El usuario ya tiene un seguro de vida registrado.'
+            ], 422);
         }
 
+        // Si no existe, crea un nuevo seguro de vida
+        $lifeInsurance = new LifeInsurance();
+        $lifeInsurance->user_id = $validated['user_id'];
+        $lifeInsurance->start_date = $validated['start_date'];
+        $lifeInsurance->date_expire = $validated['date_expire'];
+        $lifeInsurance->amount = $validated['amount'];
+        $lifeInsurance->description = $validated['description'];
+
+        $lifeInsurance->save();
+
+        return response()->json($lifeInsurance, 201);
+    } catch (\Exception $e) {
+        return response()->json(['error' => $e->getMessage()], 500);
     }
+}
 
     /**
      * Display the specified resource.

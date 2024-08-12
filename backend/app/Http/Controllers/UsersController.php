@@ -34,6 +34,7 @@ class UsersController extends Controller
             $users->address = $request->address;
             $users->email = $request->email;
             $users->password = $request->password;
+            $users->creditLimit=$request->creditLimit;
             try{
                 $users->save();
                 return response()->json($users);
@@ -68,6 +69,7 @@ class UsersController extends Controller
             $users->address = $request->address;
             $users->email = $request->email;
             $users->password = $request->password;
+            $users->creditLimit=$request->creditLimit;
             try{
                 $users->save();
                 return response()->json($users);

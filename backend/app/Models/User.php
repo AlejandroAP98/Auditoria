@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use OwenIt\Auditing\Contracts\Auditable as AuditableContract;
+use OwenIt\Auditing\Auditable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements AuditableContract
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, Auditable; // Agrega el trait Auditable
 
     /**
      * The attributes that are mass assignable.
@@ -43,8 +45,41 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    /**
+     * Define la relación con el modelo Role.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function role()
     {
         return $this->belongsTo(Role::class);
     }
+
+    /**
+     * Puedes definir eventos que deseas auditar si es necesario.
+     *
+     * @var array<string>
+     */
+    protected static $auditEvents = ['created', 'updated', 'deleted'];
+
+    public function credits()
+    {
+        return $this->hasMany(Credits::class);
+    }
+
+
+    public function totalCredits()
+    {
+        return $this->credits()->sum('amount');
+    }
+
+    public function exceedsCreditLimit()
+    {
+        return $this->totalCredits() > $this->creditLimit;
+
+
+    }
+
+
+
 }

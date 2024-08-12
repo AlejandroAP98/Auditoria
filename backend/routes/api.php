@@ -4,7 +4,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\LifeInsurancesController;
+use App\Http\Controllers\CreditsController;
+use App\Http\Controllers\OfficesController;
+use App\Http\Controllers\ConsultancesController;
+use App\Http\Controllers\BankAccountsController;
+use App\Http\Controllers\BenefitsController;
 use App\Http\Controllers\SecurityController;
+use App\Http\Controllers\RoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +22,16 @@ use App\Http\Controllers\SecurityController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+
 Route::apiResource('users', UsersController::class);
 Route::apiResource('lifeInsurances', LifeInsurancesController::class);
+Route::apiResource('credits', CreditsController::class);
+Route::apiResource('offices', OfficesController::class);
+Route::apiResource('consultances', ConsultancesController::class);
+Route::apiResource('bankAccounts', BankAccountsController::class);
+Route::apiResource('benefits', BenefitsController::class);
+Route::apiResource('roles', RoleController::class);
+
 // Route::post('/login', [SecurityController::class, 'login']);
 
 
