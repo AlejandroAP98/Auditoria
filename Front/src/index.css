@@ -12,8 +12,42 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.list-container {
 
+.containerTable {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  gap:5px
+}
+
+.audit-table {
+  border-collapse: collapse;
+  width: 600px; 
+}
+
+.audit-table th, .audit-table td {
+  border: 1px solid #ffffff;
+  padding: 8px;
+  word-wrap: break-word; 
+  text-align: left;
+  vertical-align: top;
+}
+
+.audit-table th {
+  background-color: #0f0f0f;
+  text-align: center;
+  color: #ffffff; 
+}
+
+
+.audit-table td {
+  max-width: 250px; 
+}
+
+
+.list-container {
   max-width: 500px;
   margin: 0 auto;
 }

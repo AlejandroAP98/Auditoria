@@ -11,6 +11,8 @@ use App\Http\Controllers\BankAccountsController;
 use App\Http\Controllers\BenefitsController;
 use App\Http\Controllers\SecurityController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\AuditController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +33,7 @@ Route::apiResource('consultances', ConsultancesController::class);
 Route::apiResource('bankAccounts', BankAccountsController::class);
 Route::apiResource('benefits', BenefitsController::class);
 Route::apiResource('roles', RoleController::class);
+Route::apiResource('audit', AuditController::class);
 
 // Route::post('/login', [SecurityController::class, 'login']);
 

@@ -12,7 +12,7 @@ use OwenIt\Auditing\Auditable;
 
 class User extends Authenticatable implements AuditableContract
 {
-    use HasApiTokens, HasFactory, Notifiable, Auditable; // Agrega el trait Auditable
+    use HasApiTokens, HasFactory, Notifiable, Auditable; 
 
     /**
      * The attributes that are mass assignable.

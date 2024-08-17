@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 function CreateLifeInsurance() {
-    const [id_user, setUserId] = useState('');
+    const [user_id, setUserId] = useState('');
     const [amount, setAmount] = useState('');
     const [start_date, setStartDate] = useState('');
     const [date_expire, setDateExpire] = useState('');
@@ -28,7 +28,6 @@ function CreateLifeInsurance() {
         e.preventDefault();
         
         const coverageAmountFloat = parseFloat(amount);
-        console.log(amount)
         try {
             const response = await fetch('http://127.0.0.1:8000/api/lifeInsurances', {
                 method: 'POST',
@@ -36,7 +35,7 @@ function CreateLifeInsurance() {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    id_user,
+                    user_id,
                     start_date,
                     date_expire,
                     amount: coverageAmountFloat,
@@ -65,7 +64,7 @@ function CreateLifeInsurance() {
             <h1>Crear Seguro de Vida</h1>
             <form onSubmit={handleSubmit} className='divForm'>
                 <div className='formularios'>
-                    <select id="id_user" value={id_user} onChange={(e) => setUserId(e.target.value)}>
+                    <select id="id_user" value={user_id} onChange={(e) => setUserId(e.target.value)}>
                         <option value="" disabled>Seleccione un usuario</option>
                         {users.map(user => (
                             <option key={user.id} value={user.id}>{user.name} {user.last_name}</option>

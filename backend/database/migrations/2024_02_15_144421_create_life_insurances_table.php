@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->date('start_date');
             $table->date("date_expire");
-            $table->float('amount');
+            $table->decimal('amount', 15, 2);
             $table->string("description");
             $table->timestamps();
         });
