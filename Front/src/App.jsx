@@ -7,7 +7,7 @@ import NavBar from './NavBar';
 import CreateCredit from './components/Credits/CreateCredits';
 import CreditList from './components/Credits/CreditList';
 import EditCredit from './components/Credits/CreditEdit';
-// import CreateLifeInsurance from './components/CreateLifeInsurance';
+import CreateLifeInsurance from './components/LifeInsurance/CreateLifeInsurance';
 
 function App() {
     return (
@@ -20,8 +20,7 @@ function App() {
                 <Route path='/create-credit' element={<CreateCredit/>}/>
                 <Route path='/credits' element={<CreditList/>}/>
                 <Route path='/edit-credit/:id' element={<EditCredit/>}/>
-                {/* <Route path="/create-credit" element={<CreateCredit />} />
-                <Route path="/create-life-insurance" element={<CreateLifeInsurance />} /> */}
+                <Route path='/create-lifeinsurance' element={<CreateLifeInsurance/>}/>
             </Routes>
         </Router>
     );
