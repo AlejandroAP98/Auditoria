@@ -87,7 +87,11 @@ h1 {
     flex-direction: column;
     width: fit-content;
     border-left: 2px solid;
-    padding-left: 20px;
+    position: fixed;
+    width: 200px;
+    right: 0;
+    background-color: #1a1a1a;
+    height: 100%;
 }
 
 .columns-tabs{
@@ -113,6 +117,9 @@ h2{
     flex-direction: row;
     gap: 20px;
     justify-content: space-around;
+    margin-right: 150px;
+    margin-left: 50px;
+
 }
 
 .promTasasContainer{

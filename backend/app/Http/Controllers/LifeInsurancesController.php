@@ -110,7 +110,7 @@ class LifeInsurancesController extends Controller
                 $lifeInsurances->save();
                 return response()->json($lifeInsurances);
             }catch (\Exception $e){
-                return response()->json(['error' => $e], 500);
+                return response()->json(['error de try' => $e], 500);
             }
         }else{
             return response()->json("Life insurance not found");

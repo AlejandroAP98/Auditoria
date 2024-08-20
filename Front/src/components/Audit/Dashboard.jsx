@@ -3,6 +3,7 @@ import { saveAs } from 'file-saver';
 import BarChart from './BarChart.jsx'; 
 import InterestRatesChart from './Interes.jsx';
 import DashboardStats from './DashboardStats.jsx';
+import LifeInsuranceChart from './SegurosXAño.jsx';
 import './Audit.css' 
 
 const Dashboard = () => {
@@ -24,11 +25,6 @@ const Dashboard = () => {
                 if (!userResponse.ok) throw new Error('Failed to fetch users');
                 const userData = await userResponse.json();
                 setUsers(userData);
-
-                // const lifeInsurancesResponse = await fetch('/api/lifeInsurances');
-                // if (!lifeInsurancesResponse.ok) throw new Error('Failed to fetch life insurances');
-                // const lifeInsurancesData = await lifeInsurancesResponse.json();
-                // setLifeInsurances(lifeInsurancesData);
             } catch (error) {
                 setError(error.message);
             }
@@ -75,7 +71,7 @@ const Dashboard = () => {
                 <DashboardStats/>
                 <BarChart creditData={credits} userData={users} />
                 {credits.length > 0 && <InterestRatesChart data={credits}/>}
-                
+                <LifeInsuranceChart/>   
                 </div>
                 <div className='descargas'>
                     <h2>Descargar datos</h2>

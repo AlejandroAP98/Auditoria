@@ -50,7 +50,7 @@ const LifeInsuranceEdit = () => {
                 throw new Error('Network response was not ok');
             }
 
-            navigate('/lifeInsurances'); 
+            navigate('/lifeInsurance'); 
         } catch (error) {
             setError(error.message);
         }
@@ -90,13 +90,13 @@ const LifeInsuranceEdit = () => {
                         type="date"
                         name="end_date"
                         placeholder="Fecha de Finalización"
-                        value={lifeInsurance.end_date || ''}
+                        value={lifeInsurance.date_expire || ''}
                         onChange={handleChange}
                     />
                     <input
                         type="text"
                         name="description"
-                        placeholder="Estado"
+                        placeholder="Descripción"
                         value={lifeInsurance.description || ''}
                         onChange={handleChange}
                     />

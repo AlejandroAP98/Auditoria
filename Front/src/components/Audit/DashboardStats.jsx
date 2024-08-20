@@ -39,23 +39,23 @@ const DashboardStats = () => {
     return (
         <div className='containerStats'>
             <div className='divStats'>
-                <p className='titleWidget'>Total Users</p>
+                <p className='titleWidget'>Cantidad de usuarios</p>
                 <p className='widget'>{stats.totalUsers}</p>
             </div>
             <div className='divStats'>
-                <p className='titleWidget'>Total Credits: </p>
+                <p className='titleWidget'>Cantidad de créditos</p>
                 <p className='widget'>{stats.totalCredits}</p>
             </div>
             <div className='divStats'>
-                <p className='titleWidget'>Sum of Credit Amounts: </p>
+                <p className='titleWidget'>Monto de créditos</p>
                 <p className='widget'>${stats.sumCreditAmount.toFixed(2)}</p>
             </div>
             <div className='divStats'>
-                <p className='titleWidget'>Total Life Insurances:</p>
+                <p className='titleWidget'>Cantidad de seguros de vida</p>
                 <p className='widget'>{stats.totalInsurances}</p>
             </div>
             <div className='divStats'>
-                <p className='titleWidget'>Sum of Insurance Amounts:</p>
+                <p className='titleWidget'>Monto seguros de vida</p>
                 <p className='widget'>${stats.sumInsuranceAmount.toFixed(2)}</p>
             </div>
             
