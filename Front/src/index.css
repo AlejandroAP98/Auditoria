@@ -186,14 +186,6 @@ select{
   align-content: center;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
 
 body {
   margin: 0;
@@ -229,15 +221,17 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #3f576b;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+
+/* Estilo para el botón de abrir/cerrar la barra lateral */
+.sidebar-toggle {
+  position: fixed;
+  top: 0px;
+  left: 10px;
+  z-index: 1001; /* Asegura que esté por encima de la barra lateral */
+  background-color: black ;
+  cursor: pointer;
+  width: 20px;
+  text-align: center;
 }
+
+/* Asegúrate de que el resto del CSS esté en Audit.css como antes */

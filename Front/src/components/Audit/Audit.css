@@ -1,0 +1,183 @@
+/* Estilo para el contenedor de la barra lateral */
+.sidebar {
+    height: 100%; /* Ocupa toda la altura de la pantalla */
+    width: 180px; /* Ancho de la barra lateral */
+    position: fixed; /* Fija la barra lateral en su lugar */
+    top: 0;
+    left: -170px; /* Empuja la barra lateral fuera de la pantalla */
+    background-color: black;
+    overflow-x: hidden; /* Evita el desbordamiento horizontal */
+    transition: 0.3s; /* Animación de transición */
+    z-index: 1000; /* Asegura que la barra lateral esté por encima de otros elementos */
+}
+
+/* Estilo cuando la barra lateral está abierta */
+.sidebar.open {
+    left: 0; /* Mueve la barra lateral hacia la vista */
+}
+
+/* Contenido de la barra lateral */
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+}
+
+/* Logo dentro de la barra lateral */
+.logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Lista de enlaces */
+.ulAudit {
+    list-style-type: none; /* Elimina los puntos de lista */
+    padding: 0;
+    margin: 0;
+}
+
+
+a {
+    text-decoration: none;
+    display: block;
+    padding: 4px;
+    border-radius: 4px;
+    transition: background-color 0.3s; /* Suaviza el cambio de color de fondo */
+}
+
+.liAudit a:hover {
+    color: #ffffff; /* Color de fondo al pasar el mouse */
+}
+
+
+
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+
+h1 {
+    font-size: 2.5em;
+    line-height: 1.1;
+    text-align: center;
+    font-weight: 400
+}
+
+.buttonAudit {
+    background-color: transparent;
+    text-align:start;
+    font-weight: 100;
+    
+}
+.buttonAudit:hover {
+    border-color: #a5dbff;
+}
+.buttonAudit:focus,
+.buttonAudit:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+}
+
+.descargas{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    border-left: 2px solid;
+    padding-left: 20px;
+}
+
+.columns-tabs{
+    display: flex;
+    flex-direction: column;
+    gap: 5px; 
+}
+
+h2{
+    font-size: larger;
+    text-decoration: underline;
+    font-weight: 400;
+    text-align: center;
+}
+
+.containerDashboard{
+    margin-left: 20px;
+    top: 0;
+}
+
+.content{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-around;
+}
+
+.promTasasContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.promTasasContainer select{
+    width: 50px;
+}
+
+.graficas{
+    width: 80%;
+}
+
+.userSelect{
+    display: flex;
+    gap: 10px;
+    align-items: center ;
+}
+
+.userOptions{
+    color:white;
+    padding: 10px;
+    border-radius: 10px;
+    border-color: transparent;
+    background-color: #1a1a1a;
+    border: 1px;
+    min-width: 320px;
+}
+
+.titleWidget{
+    height: fit-content;
+    margin-bottom: 0;
+    background-color: #1a1a1a;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+
+}
+
+.widget{
+    margin-top: 0;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 50px;
+    letter-spacing: 0.8;
+    border: #1a1a1a 10px solid;
+    text-align: center;
+    width: 100%;
+    padding: 0px 10px;
+    background-color: #ffffff;
+    color: #1a1a1a;
+}
+
+.containerStats{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.divStats{
+    display: flex;
+    flex-wrap: wrap;
+}

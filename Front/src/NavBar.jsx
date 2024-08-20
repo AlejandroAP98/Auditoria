@@ -4,7 +4,7 @@ import './NavBar.css';
 
 const NavBar = () => {
   const location = useLocation();
-  if (location.pathname === '/audit') {
+  if (location.pathname === '/events' || location.pathname === '/dashboard') {
     return null;
   }
 

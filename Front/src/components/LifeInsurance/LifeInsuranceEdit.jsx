@@ -73,13 +73,6 @@ const LifeInsuranceEdit = () => {
                         onChange={handleChange}
                     />
                     <input
-                        type="text"
-                        name="policy_number"
-                        placeholder="Número de Póliza"
-                        value={lifeInsurance.policy_number || ''}
-                        onChange={handleChange}
-                    />
-                    <input
                         type="number"
                         name="amount"
                         placeholder="Cantidad de Cobertura"

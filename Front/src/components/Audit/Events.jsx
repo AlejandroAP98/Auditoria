@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import '../../index.css';
 
-const Audit = () => {
+const Events = () => {
     const [audits, setAudits] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -93,4 +93,4 @@ const Audit = () => {
     );
 };
 
-export default Audit;
+export default Events;

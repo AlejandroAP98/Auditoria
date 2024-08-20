@@ -79,7 +79,7 @@ const LifeInsuranceList = () => {
                                 <p><strong>Estado:</strong> {lifeInsurance.description}</p>
                             </div>
                             <div className="actions">
-                                <Link to={`/edit-life-insurance/${lifeInsurance.id}`} className="edit-button">
+                                <Link to={`/edit-lifeInsurance/${lifeInsurance.id}`} className="edit-button">
                                     Editar
                                 </Link>
                                 <button 
