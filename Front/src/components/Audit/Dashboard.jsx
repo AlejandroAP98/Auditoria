@@ -10,7 +10,8 @@ const Dashboard = () => {
     const [users, setUsers] = useState([]);
     // eslint-disable-next-line no-unused-vars
     const [lifeInsurances, setLifeInsurances] = useState([]);
-    const [credits, setCredits]=useState([]);   
+    const [credits, setCredits] = useState([]);
+    const [auditData, setAuditData] = useState([]);  
     const [error, setError] = useState(null);
     
     useEffect(() => {
@@ -25,6 +26,12 @@ const Dashboard = () => {
                 if (!userResponse.ok) throw new Error('Failed to fetch users');
                 const userData = await userResponse.json();
                 setUsers(userData);
+                
+                const auditResponse = await fetch('http://127.0.0.1:8000/api/audit'); 
+                if (!auditResponse.ok) throw new Error('Failed to fetch audit data');
+                const auditData = await auditResponse.json();
+                setAuditData(auditData);
+                
             } catch (error) {
                 setError(error.message);
             }
@@ -40,7 +47,7 @@ const Dashboard = () => {
             }
             const data = await response.json();
             setData(data);
-            downloadCSV(data, fileName)
+            downloadCSV(data, fileName);
         } catch (error) {
             setError(error.message);
         }
@@ -61,24 +68,23 @@ const Dashboard = () => {
         saveAs(csvBlob, `${fileName}.csv`);
     };
 
-    
-
     return (
         <div className='containerDashboard'>
             {error && <p style={{ color: 'red' }}>Error: {error}</p>}
             <div className='content'>
                 <div className='graficas'>
-                <DashboardStats/>
-                <BarChart creditData={credits} userData={users} />
-                {credits.length > 0 && <InterestRatesChart data={credits}/>}
-                <LifeInsuranceChart/>   
+                    <DashboardStats/>
+                    <BarChart creditData={credits} userData={users} />
+                    {credits.length > 0 && <InterestRatesChart data={credits}/>}
+                    <LifeInsuranceChart/>   
                 </div>
                 <div className='descargas'>
                     <h2>Descargar datos</h2>
                     <div className='columns-tabs'>
-                        <button  className='buttonAudit' onClick={() => fetchData('users', setUsers, 'users')}>Usuarios</button>
+                        <button className='buttonAudit' onClick={() => fetchData('users', setUsers, 'users')}>Usuarios</button>
                         <button className='buttonAudit' onClick={() => fetchData('lifeInsurances', setLifeInsurances, 'life_insurance')}>Seguros de vida</button>
                         <button className='buttonAudit' onClick={() => fetchData('credits', setCredits, 'credits')}>Créditos</button>
+                        <button className='buttonAudit' onClick={() => downloadCSV(auditData, 'audit')}>Auditoría</button> 
                     </div>
                 </div>
             </div>

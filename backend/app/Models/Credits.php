@@ -28,18 +28,18 @@ class Credits extends Model implements AuditableContract
     {
         return $this->belongsTo(User::class);
     }
-    // Otras configuraciones específicas del modelo pueden ir aquí
+
 
     protected static function boot()
     {
         parent::boot();
 
-         // Evento al crear un nuevo crédito
+
             static::created(function ($credit) {
                 self::checkCreditLimitAndNotify($credit);
             });
 
-            // Evento al actualizar un crédito existente
+
             static::updated(function ($credit) {
                 self::checkCreditLimitAndNotify($credit);
                 if ($credit -> user) {
