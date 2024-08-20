@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './Audit.css'
+import './Audit.css';
 
 const DashboardStats = () => {
     const [stats, setStats] = useState({
@@ -36,6 +36,15 @@ const DashboardStats = () => {
         fetchData();
     }, []);
 
+    // Formateo de montos en COP
+    const formatCOP = (amount) => {
+        return new Intl.NumberFormat('es-CO', {
+            style: 'currency',
+            currency: 'COP',
+            minimumFractionDigits: 2,
+        }).format(amount);
+    };
+
     return (
         <div className='containerStats'>
             <div className='divStats'>
@@ -48,7 +57,7 @@ const DashboardStats = () => {
             </div>
             <div className='divStats'>
                 <p className='titleWidget'>Monto de créditos</p>
-                <p className='widget'>${stats.sumCreditAmount.toFixed(2)}</p>
+                <p className='widget'>{formatCOP(stats.sumCreditAmount)}</p>
             </div>
             <div className='divStats'>
                 <p className='titleWidget'>Cantidad de seguros de vida</p>
@@ -56,9 +65,8 @@ const DashboardStats = () => {
             </div>
             <div className='divStats'>
                 <p className='titleWidget'>Monto seguros de vida</p>
-                <p className='widget'>${stats.sumInsuranceAmount.toFixed(2)}</p>
+                <p className='widget'>{formatCOP(stats.sumInsuranceAmount)}</p>
             </div>
-            
         </div>
     );
 };
