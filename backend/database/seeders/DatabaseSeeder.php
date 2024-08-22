@@ -7,9 +7,15 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    public function run()
+    public function run() :void
     {
-        \App\Models\User::factory(100)->create(); // Crea 10 usuarios
+        $this->call([
+            RoleSeeder::class,
+            UserSeeder::class,
+            CreditsTableSeeder::class,
+            LifeInsuranceTableSeeder::class,
+        ]);
+
     }
 
 }

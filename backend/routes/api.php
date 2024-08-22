@@ -45,7 +45,7 @@ Route::apiResource('audit', AuditController::class);
 //     Route::get('/users/{id}', [UsersController::class, 'show']);
 //     Route::post('/users', [UsersController::class, 'store']);
 //     Route::put('/users/{id}', [UsersController::class, 'update']);
-//     Route::delete('/users/{id}', [UsersController::class, 'destroy']);
+    Route::delete('/users/{id}', [UsersController::class, 'destroy']);
 
 //     Route::get('/lifeInsurances', [LifeInsurancesController::class, 'index']);
 //     Route::get('/lifeInsurances/{id}', [LifeInsurancesController::class, 'show']);

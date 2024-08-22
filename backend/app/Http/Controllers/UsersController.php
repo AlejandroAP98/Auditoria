@@ -81,22 +81,19 @@ class UsersController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        //
-        $users = User::find($id);
-        if($users){
-            try{
-                $users->delete();
-                return response()->json('User deleted');
-            }catch (\Exception $e){
-                return response()->json(['error' => $e], 500);
+        $user = User::find($id);
+        if($user)
+            try {
+                $user->delete();
+                return response()->json(['message' => 'User deleted'], 200);
+            } catch (\Exception $e) {
+                return response()->json(['error' => 'An error occurred'], 500);
             }
-        }else{
+        else{
             return response()->json('User not found');
         }
     }
+
 }
