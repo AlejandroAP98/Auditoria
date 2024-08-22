@@ -45,12 +45,13 @@ const EditCredit = () => {
                 },
                 body: JSON.stringify(credit),
             });
-
+            
+            navigate('/credits');
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
 
-            navigate('/credits'); // Redirige a la lista de créditos después de la actualización
+            
         } catch (error) {
             setError(error.message);
         }

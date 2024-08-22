@@ -46,14 +46,7 @@ class LifeInsurancesController extends Controller
     ]);
 
     try {
-        // Verifica si el usuario ya tiene un seguro de vida registrado
-        $existingLifeInsurance = LifeInsurance::where('user_id', $validated['user_id'])->first();
-        if ($existingLifeInsurance) {
-            return response()->json([
-                'error' => 'El usuario ya tiene un seguro de vida registrado.'
-            ], 422);
-        }
-
+        
         // Si no existe, crea un nuevo seguro de vida
         $lifeInsurance = new LifeInsurance();
         $lifeInsurance->user_id = $validated['user_id'];

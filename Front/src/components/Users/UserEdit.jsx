@@ -45,12 +45,12 @@ const EditUser = () => {
                 },
                 body: JSON.stringify(user),
             });
-
+            navigate('/users');
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
 
-            navigate('/users'); // Redirige a la lista de usuarios después de la actualización
+             // Redirige a la lista de usuarios después de la actualización
         } catch (error) {
             setError(error.message);
         }

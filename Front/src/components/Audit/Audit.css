@@ -44,7 +44,9 @@ a {
     display: block;
     padding: 4px;
     border-radius: 4px;
-    transition: background-color 0.3s; /* Suaviza el cambio de color de fondo */
+    transition: background-color 0.3s;
+    font-weight: 100;
+    /* Suaviza el cambio de color de fondo */
 }
 
 .liAudit a:hover {
@@ -187,4 +189,47 @@ h2{
 .divStats{
     display: flex;
     flex-wrap: wrap;
+}
+
+
+.filtros{
+    margin: 5px;
+    padding-top: 15px;
+    border: darkgray solid 4px;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.filtrosTasa{
+    height: 100%;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    padding-right: 10px;
+}
+
+.filteredUsersList{
+    position: relative;
+    height: 200px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    
+}
+
+.inputFilteredUsersList{
+    height: min-content;
+    text-align: center;
+}
+
+.titleFiltros{
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: large;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
